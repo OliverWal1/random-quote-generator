@@ -1,0 +1,30 @@
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+cmake-build-*/
+
+### Build-Tools ###
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.nextDevelopmentStep
+release.properties
+
+# Gradle
+.gradle/
+build/
+
+### Systemdateien ###
+.DS_Store
+Thumbs.db
+log/
+*.log
+
+### Lokale Konfiguration (WICHTIG!) ###
+.env
+*.local
