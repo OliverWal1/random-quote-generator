@@ -1,80 +1,38 @@
-📜 Dynamic Quote & Biography Generator
+# 💡 Random Quote Generator
 
-Ein interaktiver, webbasierter Zitate-Generator, der nicht nur inspirierende Zitate liefert, sondern über eine API-Anbindung vollautomatisch biografische Informationen und Porträtbilder der Autoren aus der Wikipedia-Datenbank nachlädt. Das Design wechselt dynamisch mit jedem Klick das Hintergrundbild und passt seine Position spielerisch an.
+Ein interaktives Web-Tool, das bei jedem Klick inspirierende Zitate generiert und diese mit dynamischen Informationen über den jeweiligen Autor sowie einem atmosphärischen Hintergrundbild kombiniert.
 
-Dieses Projekt wurde als Teil meines Portfolios entwickelt, um meine Fähigkeiten im Bereich Asynchrones JavaScript (ES6+), REST-API-Integration und modernes CSS (Glassmorphic Design) zu demonstrieren.
-🚀 Features
+Dieses Projekt wurde entwickelt, um asynchrone API-Datenverarbeitung, moderne CSS-Layout-Techniken und dynamische DOM-Manipulation zu demonstrieren.
 
-    Zwei-Stufen-API-Pipeline: Holt ein zufälliges Zitat und fragt anschließend die Wikipedia-API ab, um Echtzeit-Informationen und Bilder des entsprechenden Autors zu laden.
+## 🚀 Live-Demo
+*(Füge hier später den Link zu deiner gehosteten Seite ein, z.B. GitHub Pages)*
 
-    Intelligentes Fallback-System: Falls Wikipedia keine Daten oder kein Porträt zum Autor findet, generiert die App automatisch einen personalisierten Platzhalter-Avatar via ui-avatars.com.
+## 🛠️ Eingesetzte Technologien
+*   **HTML5:** Semantisches Markup für eine klare Struktur.
+*   **CSS3:** Einsatz von modernen Layout-Techniken (Flexbox), "Glassmorphism"-Design und CSS-Keyframe-Animationen für flüssige Übergänge.
+*   **JavaScript (ES6+):** Asynchrone Programmierung mittels `async/await` und `fetch API` zur Einbindung externer Datenquellen.
 
-    Modernes Glassmorphism-UI: Milchglas-Effekt mittels CSS backdrop-filter, gepaart mit flüssigen Animationen und Mikrointeraktionen.
+## ⚙️ Features
+*   **Dynamische Daten:** Abruf von zufälligen Zitaten über die [DummyJSON API](https://dummyjson.com/).
+*   **Erweiterte Kontext-Informationen:** Automatisches Abrufen von Autoren-Biografien und Profilbildern via [Wikipedia REST API](https://en.wikipedia.org/api/rest_v1/).
+*   **Fallbacks:** Intelligente Fehlerbehandlung mit Platzhalter-Avataren (via [UI Avatars API](https://ui-avatars.com/)), falls keine Wikipedia-Daten gefunden werden.
+*   **Visuelle Dynamik:** Bei jedem Klick wird ein neues, zufälliges Full-HD Hintergrundbild von [Lorem Picsum](https://picsum.photos/) geladen.
+*   **Responsives Design:** Optimiert für ein ästhetisches Nutzererlebnis auf verschiedenen Bildschirmgrößen mit zufälliger Positionierung des Quote-Cards.
 
-    Dynamisches UX-Layout: Bei jedem Klick wechselt das hochauflösende Hintergrundbild via Lorem Picsum, während sich die Zitate-Box zufällig links oder rechts positioniert, um das Hintergrundbild perfekt in Szene zu setzen.
+## 🧠 Was ich gelernt habe
+*   **API-Integration:** Umgang mit mehreren APIs in einer Kette, um ein vollständiges Nutzererlebnis zu schaffen.
+*   **Asynchrones JavaScript:** Effiziente Nutzung von `Promise` und `async/await` zur Vermeidung von Blocking-Calls.
+*   **CSS-Animationen:** Techniken, um Animationen durch DOM-Reflow (Forced Reflow) neu zu starten, um einen "Fade-In"-Effekt bei jedem Klick zu ermöglichen.
+*   **UI/UX-Design:** Anwendung von modernen Design-Trends wie Glassmorphism, um eine ansprechende und moderne Oberfläche zu erstellen.
 
-    Performance & Animation-Tricks: Nutzung des DOM-Reflow-Tricks in JavaScript, um CSS3-Keyframe-Animationen bei jedem Klick zuverlässig neu zu triggern.
+## 🚀 Installation & Nutzung
+Dieses Projekt benötigt keinen Build-Prozess.
 
-🛠️ Tech Stack & Konzepte
+1. Klone das Repository:
+   ```bash
+   git clone https://github.com/DEIN_USERNAME/random-quote-generator.git
+   ```
+2. Öffne die `index.html` direkt in deinem Browser.
 
-    Frontend: HTML5, CSS3 (Flexbox, Keyframe Animations, Glassmorphism CSS)
-
-    JavaScript (Vanilla JS):
-
-        Asynchrones Programmieren mit async/await und Fehlerbehandlung via try/catch.
-
-        Dynamische DOM-Manipulation.
-
-        Verwendung von URL-Encoding für sichere API-Anfragen bei Sonderzeichen in Namen.
-
-    Verwendete APIs:
-
-        DummyJSON Quotes API – Für die Zitate.
-
-        Wikipedia REST API – Für Biografien und Autoren-Bilder.
-
-        Lorem Picsum – Für hochauflösende, zufällige Hintergrundbilder.
-
-        UI Avatars – Als Fallback für Autoren-Grafiken.
-
-📂 Projektstruktur
-
-    index.html – Struktur der Anwendung mit semantischem HTML5.
-
-    style.css – Styling inklusive Glassmorphism, Responsive Design & Animationen.
-
-    script.js – App-Logik, API-Fetching und UI-Zustandsänderungen.
-
-💡 Technische Highlights (Code Insights)
-1. Asynchrones API-Chaining
-
-Die App wartet intelligent auf das Ergebnis der Zitate-API, um den Autorennamen zu extrahieren, und füttert damit direkt die Wikipedia-Schnittstelle:
-JavaScript
-
-const response = await fetch('https://dummyjson.com/quotes/random');
-const data = await response.json();
-
-// Verknüpfung der APIs
-await fetchAuthorDetails(data.author);
-
-2. CSS-Animation Reset via DOM-Reflow
-
-Um die Einblende-Animation (fadeInSmooth) bei jedem Klick neu zu starten, nutzt das Skript einen gezielten Reflow-Trigger über die Layout-Engine des Browsers:
-JavaScript
-
-container.style.animation = "none";
-void container.offsetWidth; // Erzwingt den Reflow
-container.style.animation = "fadeInSmooth 0.8s ease forwards";
-
-🔧 Installation & Lokaler Start
-
-Da das Projekt aus reinem Vanilla-Webcode besteht, ist keine komplexe Installation oder ein Build-Schritt notwendig.
-
-    Repository klonen:
-    git clone https://github.com/DEIN-BENUTZERNAME/DEIN-REPO-NAME.git
-
-    Die index.html direkt im Browser öffnen oder über eine IDE (z.B. VS Code mit der Extension "Live Server") starten.
-
-📝 Lizenz
-
-Dieses Projekt ist unter der MIT-Lizenz lizenziert.
+---
+*Entwickelt als Projekt für mein Portfolio.*
