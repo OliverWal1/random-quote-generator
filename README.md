@@ -8,31 +8,34 @@ Dieses Projekt wurde entwickelt, um asynchrone API-Datenverarbeitung, moderne CS
 *(Füge hier später den Link zu deiner gehosteten Seite ein, z.B. GitHub Pages)*
 
 ## 🛠️ Eingesetzte Technologien
-*   **HTML5:** Semantisches Markup für eine klare Struktur.
-*   **CSS3:** Einsatz von modernen Layout-Techniken (Flexbox), "Glassmorphism"-Design und CSS-Keyframe-Animationen für flüssige Übergänge.
-*   **JavaScript (ES6+):** Asynchrone Programmierung mittels `async/await` und `fetch API` zur Einbindung externer Datenquellen.
+*   **HTML5:** Semantische Strukturierung der Benutzeroberfläche.
+*   **CSS3:** Glassmorphism-Design-Prinzipien, Flexbox-Layouting, CSS-Keyframes für Animationen und dynamische Hintergrund-Styling-Manipulation.
+*   **JavaScript (ES6+):** Asynchrone Programmierung (`async/await`, `fetch API`), DOM-Manipulation und Event-Handling.
 
 ## ⚙️ Features
-*   **Dynamische Daten:** Abruf von zufälligen Zitaten über die [DummyJSON API](https://dummyjson.com/).
-*   **Erweiterte Kontext-Informationen:** Automatisches Abrufen von Autoren-Biografien und Profilbildern via [Wikipedia REST API](https://en.wikipedia.org/api/rest_v1/).
-*   **Fallbacks:** Intelligente Fehlerbehandlung mit Platzhalter-Avataren (via [UI Avatars API](https://ui-avatars.com/)), falls keine Wikipedia-Daten gefunden werden.
-*   **Visuelle Dynamik:** Bei jedem Klick wird ein neues, zufälliges Full-HD Hintergrundbild von [Lorem Picsum](https://picsum.photos/) geladen.
-*   **Responsives Design:** Optimiert für ein ästhetisches Nutzererlebnis auf verschiedenen Bildschirmgrößen mit zufälliger Positionierung des Quote-Cards.
+*   **Multi-API-Integration:** 
+    *   [DummyJSON API](https://dummyjson.com/): Abruf zufälliger Zitate.
+    *   [Wikipedia REST API](https://en.wikipedia.org/api/rest_v1/): Dynamisches Nachladen von Autorenbiografien und Profilbildern.
+*   **Intelligentes Fallback-System:** Automatisches Generieren von Avataren via [UI Avatars API](https://ui-avatars.com/), falls keine Wikipedia-Daten verfügbar sind.
+*   **Visuelle Dynamik:** Bei jedem Klick wird durch [Lorem Picsum](https://picsum.photos/) ein neues, zufälliges Full-HD Hintergrundbild gesetzt.
+*   **UX-Optimierung:** 
+    *   Zufällige Platzierung der Inhalts-Card auf dem Bildschirm bei jedem Aufruf.
+    *   Gezieltes Triggern von CSS-Animationen ("Forced Reflow"-Technik) für flüssige Übergänge.
 
-## 🧠 Was ich gelernt habe
-*   **API-Integration:** Umgang mit mehreren APIs in einer Kette, um ein vollständiges Nutzererlebnis zu schaffen.
-*   **Asynchrones JavaScript:** Effiziente Nutzung von `Promise` und `async/await` zur Vermeidung von Blocking-Calls.
-*   **CSS-Animationen:** Techniken, um Animationen durch DOM-Reflow (Forced Reflow) neu zu starten, um einen "Fade-In"-Effekt bei jedem Klick zu ermöglichen.
-*   **UI/UX-Design:** Anwendung von modernen Design-Trends wie Glassmorphism, um eine ansprechende und moderne Oberfläche zu erstellen.
+## 🧠 Kompetenzen & Erkenntnisse
+*   **API-Chaining:** Effektive Kombination mehrerer Datenquellen zur Anreicherung des User-Contents.
+*   **Fehlerbehandlung:** Robuste `try-catch`-Strukturen zur Sicherstellung der App-Stabilität bei Netzwerkfehlern.
+*   **DOM-Interaktion:** Dynamische Anpassung von CSS-Properties und Animationen mittels JavaScript.
+*   **UX/UI-Design:** Umsetzung moderner Design-Patterns wie "Glassmorphism" für eine ansprechende User Experience.
 
 ## 🚀 Installation & Nutzung
-Dieses Projekt benötigt keinen Build-Prozess.
+Dieses Projekt ist ein Client-side-only Web-Projekt und benötigt keinen Build-Prozess.
 
 1. Klone das Repository:
    ```bash
    git clone https://github.com/DEIN_USERNAME/random-quote-generator.git
    ```
-2. Öffne die `index.html` direkt in deinem Browser.
+2. Öffne die Datei `index.html` in einem modernen Webbrowser.
 
 ---
 *Entwickelt als Projekt für mein Portfolio.*
