@@ -9,6 +9,8 @@ async function loadRandomQuote() {
     try {
         // 1. Zitat von DummyJSON holen
         const response = await fetch('https://dummyjson.com/quotes/random');
+        if (!response.ok) throw new Error("Failed to fetch quote");
+
         const data = await response.json();
 
         // Texte setzen
@@ -26,21 +28,24 @@ async function loadRandomQuote() {
         restartFadeAnimation();
 
     } catch (error) {
-        console.error("Fehler beim Laden:", error);
-        quoteText.textContent = "Oops! Konnte kein neues Zitat laden.";
-        quoteAuthor.textContent = "Netzwerkfehler";
+        console.error("Error loading application data:", error);
+        quoteText.textContent = "Oops! Something went wrong while loading the quote.";
+        quoteAuthor.textContent = "Error";
+        authorInfo.textContent = "Could not retrieve biography.";
+        authorImg.src = "https://ui-avatars.com/api/?name=Error&size=140&background=222&color=fff";
     }
 }
 
 async function fetchAuthorDetails(name) {
     try {
-        const wikiResponse = await fetch(`https://de.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(name)}`);
+        // Wikipedia-API aufrufen auf EN-Wikipedia, weil cooler
+        const wikiResponse = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(name)}`)
 
         if (wikiResponse.ok) {
             const wikiData = await wikiResponse.json();
 
             // Zusammenfassung setzen
-            authorInfo.textContent = wikiData.extract || "Keine weiteren Infos verfügbar.";
+            authorInfo.textContent = wikiData.extract || "No further information available.";
 
             // Bild setzen (Wikipedia-Bild oder Fallback auf UI-Avatars)
             if (wikiData.thumbnail && wikiData.thumbnail.source) {
@@ -50,11 +55,13 @@ async function fetchAuthorDetails(name) {
             }
         } else {
             // Fallback, wenn Wikipedia die Person nicht kennt
-            authorInfo.textContent = "Berühmte Persönlichkeit.";
+            authorInfo.textContent = "Famous personality.";
             authorImg.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=140&background=random`;
         }
     } catch (err) {
-        authorInfo.textContent = "Informationen konnten nicht geladen werden.";
+        console.error("Error fetching author details:", err);
+        authorInfo.textContent = "Biography temporarily unavailable.";
+        authorImg.src = "https://ui-avatars.com/api/?name=Error&size=140&background=222&color=fff"
     }
 }
 
@@ -76,16 +83,16 @@ function setRandomContainerPosition() {
 }
 
 function restartFadeAnimation() {
-    if (!container) return;
+    // Verhindert Layout-Crashes auf dem Smartphone (Verschiebung nur ab Desktop)
+    if (window.innerWidth < 768) {
+        document.body.style.justifyContent = "center";
+        return;
+    }
 
-    // Animation zurücksetzen
-    container.style.animation = "none";
-
-    // Reflow erzwingen (Trick, um CSS-Animation neu zu triggern)
-    void container.offsetWidth;
-
-    // Animation wieder aktivieren (Stelle sicher, dass fadeInSmooth in deinem CSS existiert!)
-    container.style.animation = "fadeInSmooth 0.8s ease forwards";
+    // Nutzt das Flexbox-System des Bodys statt unsauberes absolute Positioning
+    const positions = ["flex-start", "center", "flex-end"];
+    const randomPosition = positions[Math.floor(Math.random() * positions.length)];
+    document.body.style.justifyContent = randomPosition;
 }
 
 // Event Listener
