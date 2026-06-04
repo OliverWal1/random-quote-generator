@@ -33,7 +33,7 @@ Dieses Projekt ist ein Client-side-only Web-Projekt und benötigt keinen Build-P
 
 1. Klone das Repository:
    ```bash
-   git clone https://github.com/DEIN_USERNAME/random-quote-generator.git
+   git clone https://github.com/OliverWal1/random-quote-generator.git
    ```
 2. Öffne die Datei `index.html` in einem modernen Webbrowser.
 
