@@ -5,7 +5,7 @@ Ein interaktives Web-Tool, das bei jedem Klick inspirierende Zitate generiert un
 Dieses Projekt wurde entwickelt, um asynchrone API-Datenverarbeitung, moderne CSS-Layout-Techniken und dynamische DOM-Manipulation zu demonstrieren.
 
 ## 🚀 Live-Demo
-*(Füge hier später den Link zu deiner gehosteten Seite ein, z.B. GitHub Pages)*
+*https://oliverwal1.github.io/random-quote-generator/*
 
 ## 🛠️ Eingesetzte Technologien
 *   **HTML5:** Semantische Strukturierung der Benutzeroberfläche.
